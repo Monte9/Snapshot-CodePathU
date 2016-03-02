@@ -35,16 +35,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         query.limit = 20
         
         
-        // fetch data asynchronously
-        query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
-            if let imageArray = media {
-                print("Number of images retrived: \(imageArray.count)")
-                print(imageArray)
-                self.gifs = Gif.gifsWithArray(responseDictionary["data"] as! [NSDictionary])
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
+//        // fetch data asynchronously
+//        query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
+//            if let imageArray = media {
+//                print("Number of images retrived: \(imageArray.count)")
+//                print(imageArray)
+//                self.gifs = Gif.gifsWithArray(responseDictionary["data"] as! [NSDictionary])
+//            } else {
+//                print(error?.localizedDescription)
+//            }
+//        }
         
     }
     
