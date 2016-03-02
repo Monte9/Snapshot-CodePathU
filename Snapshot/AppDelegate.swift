@@ -7,16 +7,56 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
+        
+        //setup parse server 
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "Snapshot"
+                configuration.clientKey = "aklsdjf24kljkljsdnf89uj23kln"
+                configuration.server = "https://powerful-journey-92279.herokuapp.com/parse"
+                print("parse setup complete")
+            })
+        )
+        
+        var currentUser = PFUser.currentUser()
+        // check if user is logged in.
+        if currentUser != nil {
+          print("Current user detected")
+            //change this vc to enable current user logged in feature
+            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            // Make the vc the root view controller
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else {
+            print("no user found")
+            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            // Make the vc the root view controller
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }
+        
         return true
+    }
+    
+    func userDidLogout() {
+      //  print("Notification received")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        window?.rootViewController = vc
+        print("vc changed")
     }
 
     func applicationWillResignActive(application: UIApplication) {
