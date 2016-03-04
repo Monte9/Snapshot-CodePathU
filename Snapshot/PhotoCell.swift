@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Parse
 
 class PhotoCell: UITableViewCell {
 
     @IBOutlet weak var photoView: UIImageView!
     
     @IBOutlet weak var captionField: UILabel!
+    
+    var object: PFObject? {
+        didSet {
+            photo = Photo(object: object!)
+            photo.cell = self;
+        }
+    }
     
     var photo: Photo! {
         didSet {

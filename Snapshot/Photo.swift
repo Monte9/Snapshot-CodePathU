@@ -19,6 +19,8 @@ class Photo: NSObject {
     var likesCount: Int?
     var commentsCount: Int?
     
+    var cell: PhotoCell?
+    
     
     init(object : PFObject) {
         
@@ -42,6 +44,7 @@ class Photo: NSObject {
                     let image = UIImage(data: imageData!)
                     print(image)
                     self.image = image
+                    self.cell?.photo = self;
                     NSNotificationCenter.defaultCenter().postNotificationName(imageDataSetNotification, object: nil)
                 } else {
                     print("ERROR: could not get image \(error?.localizedDescription)")

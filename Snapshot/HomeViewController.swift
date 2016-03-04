@@ -58,9 +58,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if (photos != nil) {
             let object = photos![indexPath.row]
-            let newPhoto = Photo(object: object)
             
-            cell.photo = newPhoto
+            cell.object = object
             
         }
         return cell
