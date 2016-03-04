@@ -177,29 +177,28 @@
                                     <action selector="onSubmitImage:" destination="vzS-Eb-Vko" eventType="touchUpInside" id="m2S-bk-gHl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-AM-hKW">
-                                <rect key="frame" x="16" y="422" width="288" height="23"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q4g-UU-qpm">
+                                <rect key="frame" x="20" y="422" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BUa-AM-hKW" firstAttribute="leading" secondItem="mnP-Wr-BWN" secondAttribute="leadingMargin" id="BvZ-0Y-1mx"/>
+                            <constraint firstAttribute="trailing" secondItem="Q4g-UU-qpm" secondAttribute="trailing" constant="20" id="Avq-OA-fff"/>
                             <constraint firstItem="AEU-yR-xhe" firstAttribute="top" secondItem="t6m-pp-c3m" secondAttribute="bottom" constant="50" id="Dm2-7p-G6m"/>
-                            <constraint firstItem="BUa-AM-hKW" firstAttribute="top" secondItem="AEU-yR-xhe" secondAttribute="bottom" constant="8" id="LwY-ma-fxt"/>
                             <constraint firstItem="QMK-PL-YK9" firstAttribute="top" secondItem="RBx-MI-mSl" secondAttribute="bottom" constant="20" id="OY7-2b-WWn"/>
                             <constraint firstItem="AEU-yR-xhe" firstAttribute="leading" secondItem="mnP-Wr-BWN" secondAttribute="leading" constant="20" id="TiU-QA-a2D"/>
                             <constraint firstItem="RBx-MI-mSl" firstAttribute="centerX" secondItem="mnP-Wr-BWN" secondAttribute="centerX" id="WmZ-Hm-i0A"/>
                             <constraint firstAttribute="trailing" secondItem="AEU-yR-xhe" secondAttribute="trailing" constant="20" id="aSR-fv-K0H"/>
-                            <constraint firstItem="BUa-AM-hKW" firstAttribute="trailing" secondItem="mnP-Wr-BWN" secondAttribute="trailingMargin" id="cpR-Jj-dCw"/>
+                            <constraint firstItem="Q4g-UU-qpm" firstAttribute="top" secondItem="AEU-yR-xhe" secondAttribute="bottom" constant="8" id="njW-z9-3oe"/>
                             <constraint firstItem="RBx-MI-mSl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AEU-yR-xhe" secondAttribute="bottom" constant="8" id="rTF-RC-8E3"/>
+                            <constraint firstItem="Q4g-UU-qpm" firstAttribute="leading" secondItem="mnP-Wr-BWN" secondAttribute="leading" constant="20" id="ub5-Ln-tPv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lDk-mC-Qjk"/>
                     <connections>
-                        <outlet property="captionField" destination="BUa-AM-hKW" id="PfE-OI-2rH"/>
+                        <outlet property="captionField" destination="Q4g-UU-qpm" id="mIQ-zV-RrO"/>
                         <outlet property="userImageView" destination="pm6-XM-PJF" id="fEv-p0-X9z"/>
                     </connections>
                 </viewController>
@@ -253,8 +252,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="PhotoView" destination="Zvn-Z4-Pkl" id="4RL-AA-uhI"/>
-                                            <outlet property="captionField" destination="Co1-oC-dSI" id="Hcn-QE-8fA"/>
+                                            <outlet property="captionField" destination="Co1-oC-dSI" id="ppx-Eb-pu8"/>
+                                            <outlet property="photoView" destination="Zvn-Z4-Pkl" id="18T-5a-L9j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

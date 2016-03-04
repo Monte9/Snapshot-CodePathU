@@ -2,19 +2,29 @@
 //  PhotoCell.swift
 //  Snapshot
 //
-//  Created by Monte's Pro 13" on 3/2/16.
+//  Created by Monte's Pro 13" on 3/3/16.
 //  Copyright © 2016 MonteThakkar. All rights reserved.
 //
 
 import UIKit
-import Parse
 
-class PhotoCell: UITableViewCell{
-    
-    @IBOutlet weak var PhotoView: UIImageView!
+class PhotoCell: UITableViewCell {
+
+    @IBOutlet weak var photoView: UIImageView!
     
     @IBOutlet weak var captionField: UILabel!
-
+    
+    var photo: Photo! {
+        didSet {
+            print("did set caption and image?")
+            photoView.image = photo.image
+            print("This is the image that is to be set: \(photo.image)")
+            captionField.text = photo.caption
+        }
+    }
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

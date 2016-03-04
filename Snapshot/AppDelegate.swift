@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if currentUser != nil {
           print("Current user detected")
             //change this vc to enable current user logged in feature
-            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            let vc = storyboard.instantiateViewControllerWithIdentifier("MainTabBar")
             // Make the vc the root view controller
             window?.rootViewController = vc
             window?.makeKeyAndVisible()

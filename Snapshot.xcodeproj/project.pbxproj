@@ -17,8 +17,8 @@
 		FA732C781C86E6C50007EA7E /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C771C86E6C50007EA7E /* CaptureViewController.swift */; };
 		FA732C7A1C86E6D90007EA7E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C791C86E6D90007EA7E /* ProfileViewController.swift */; };
 		FA732C7E1C87016A0007EA7E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C7D1C87016A0007EA7E /* Post.swift */; };
-		FA732C801C87098C0007EA7E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C7F1C87098C0007EA7E /* PhotoCell.swift */; };
-		FA732C821C87182A0007EA7E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C811C87182A0007EA7E /* Photo.swift */; };
+		FA732C861C88F3360007EA7E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C851C88F3360007EA7E /* PhotoCell.swift */; };
+		FA732C881C88F7230007EA7E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732C871C88F7230007EA7E /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		FA732C771C86E6C50007EA7E /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		FA732C791C86E6D90007EA7E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA732C7D1C87016A0007EA7E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		FA732C7F1C87098C0007EA7E /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		FA732C811C87182A0007EA7E /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		FA732C851C88F3360007EA7E /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		FA732C871C88F7230007EA7E /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 				FA732C771C86E6C50007EA7E /* CaptureViewController.swift */,
 				FA732C751C86D4B80007EA7E /* HomeViewController.swift */,
 				FA732C7D1C87016A0007EA7E /* Post.swift */,
-				FA732C7F1C87098C0007EA7E /* PhotoCell.swift */,
-				FA732C811C87182A0007EA7E /* Photo.swift */,
+				FA732C851C88F3360007EA7E /* PhotoCell.swift */,
+				FA732C871C88F7230007EA7E /* Photo.swift */,
 			);
 			path = Snapshot;
 			sourceTree = "<group>";
@@ -228,8 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA732C821C87182A0007EA7E /* Photo.swift in Sources */,
-				FA732C801C87098C0007EA7E /* PhotoCell.swift in Sources */,
+				FA732C881C88F7230007EA7E /* Photo.swift in Sources */,
+				FA732C861C88F3360007EA7E /* PhotoCell.swift in Sources */,
 				FA732C741C86C7D10007EA7E /* LoginViewController.swift in Sources */,
 				FA732C781C86E6C50007EA7E /* CaptureViewController.swift in Sources */,
 				FA732C7A1C86E6D90007EA7E /* ProfileViewController.swift in Sources */,

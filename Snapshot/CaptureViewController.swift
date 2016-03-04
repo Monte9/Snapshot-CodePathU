@@ -8,18 +8,20 @@
 
 import UIKit
 
-class CaptureViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class CaptureViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
 
     let imagePicker = UIImagePickerController()
     
     var image = UIImage()
     
-    @IBOutlet weak var captionField: UILabel!
     
+    @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var userImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        captionField.delegate = self
         
         imagePicker.delegate = self
         
@@ -28,6 +30,15 @@ class CaptureViewController: UIViewController, UINavigationControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func onAddImage(sender: AnyObject) {
@@ -72,9 +83,16 @@ class CaptureViewController: UIViewController, UINavigationControllerDelegate, U
         
         let newImage = Post.resize(image, newSize: CGSize(width: 300, height: 500))
         Post.postUserImage(newImage, withCaption: captionField.text) { (success: Bool, error: NSError?) -> Void in
-            self.tabBarController?.selectedIndex = 0
+            
+            if success {
+                self.userImageView.image = nil
+                self.captionField.text = nil
+                self.tabBarController?.selectedIndex = 0
+            } else {
+                print("Sorry! Error posting image to DB")
+            }
+            
         }
-        self.tabBarController?.selectedIndex = 0
     }
     
     /*
