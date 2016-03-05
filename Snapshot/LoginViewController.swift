@@ -8,12 +8,22 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passworkField: UITextField!
+    
+    @IBOutlet var customView: UIView!
+    
+    
+    
+//    hud.mode = MBProgressHUD
+//    //MBProgressHUDModeAnnularDeterminate
+//    hud.labelText = "Loading"
+//    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +35,20 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     @IBAction func onLogin(sender: AnyObject) {
         
         let username = usernameField.text ?? ""
         let password = passworkField.text ?? ""
         
+        
+        //Show HUD progress bar
+        var loadingHUD = MBProgressHUD.showHUDAddedTo(
+            self.view, animated: true)
+        loadingHUD.mode = MBProgressHUDMode.Indeterminate
+        loadingHUD.labelText = "Welcome!"
+
         PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) -> Void in
             if let error = error {
                 print("User login failed.")
@@ -38,9 +56,9 @@ class LoginViewController: UIViewController {
             } else {
                 print("User logged in successfully")
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
         }
-        
     }
     
     @IBAction func onSignup(sender: AnyObject) {
@@ -49,10 +67,17 @@ class LoginViewController: UIViewController {
         user.username = usernameField.text
         user.password = passworkField.text
         
+        //Show HUD progress bar
+        var loadingHUD = MBProgressHUD.showHUDAddedTo(
+            self.view, animated: true)
+        loadingHUD.mode = MBProgressHUDMode.AnnularDeterminate
+        loadingHUD.labelText = "Deep breath!"
+        
         user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 print("new user created")
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             } else {
                 print("ERROR: " + (error?.localizedDescription)!)
             }

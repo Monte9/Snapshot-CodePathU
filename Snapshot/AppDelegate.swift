@@ -13,14 +13,12 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
-        
         
         //setup parse server 
         Parse.initializeWithConfiguration(
@@ -32,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
+        
         // check if user is logged in.
         if currentUser != nil {
           print("Current user detected")
@@ -42,10 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
         } else {
-            print("no user found")
-            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
-            // Make the vc the root view controller
-            window?.rootViewController = vc
+            window?.rootViewController = storyboard.instantiateInitialViewController();
             window?.makeKeyAndVisible()
         }
         
@@ -54,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func userDidLogout() {
       //  print("Notification received")
-        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        let vc = storyboard.instantiateInitialViewController()! as UIViewController
         window?.rootViewController = vc
         print("vc changed")
     }

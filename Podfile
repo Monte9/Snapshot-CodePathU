@@ -7,5 +7,7 @@ target 'Snapshot' do
 
 pod 'Parse';
 
+pod 'MBProgressHUD';
+
 end
 

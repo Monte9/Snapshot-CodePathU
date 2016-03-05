@@ -29,7 +29,6 @@ class Photo: NSObject {
         // Create Parse object PFObject
         let newObject = object
         
-        print("Get details of photo from object")
         // Add relevant fields to the object
         //  author = newObject["author"] as! String
         caption = newObject["caption"] as! String
@@ -40,17 +39,13 @@ class Photo: NSObject {
             
             newImage.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 if (error == nil) {
-                    print("Image data found.. saving UIImage")
                     let image = UIImage(data: imageData!)
-                    print(image)
                     self.image = image
                     self.cell?.photo = self;
-                    NSNotificationCenter.defaultCenter().postNotificationName(imageDataSetNotification, object: nil)
                 } else {
                     print("ERROR: could not get image \(error?.localizedDescription)")
                 }
                 }, progressBlock: { (int: Int32) -> Void in
-                    print("int yay!")
             })
         }
     }

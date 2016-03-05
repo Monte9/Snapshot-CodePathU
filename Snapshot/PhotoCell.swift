@@ -24,9 +24,7 @@ class PhotoCell: UITableViewCell {
     
     var photo: Photo! {
         didSet {
-            print("did set caption and image?")
             photoView.image = photo.image
-            print("This is the image that is to be set: \(photo.image)")
             captionField.text = photo.caption
         }
     }
